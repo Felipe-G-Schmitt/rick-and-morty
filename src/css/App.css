@@ -78,8 +78,28 @@ a:hover {
   margin-bottom: 20px;
 }
 
+.card img{
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
 .cardname{
   font-size: 25px;
+  font-weight: bold;
+}
+
+.cardspecies{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.cardgender{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.cardstatus{
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -110,9 +130,7 @@ a:hover {
 .cardepisode{
   display: flex;
 	flex-wrap: wrap;
-  gap: 10px;
   justify-content: center;
-  padding: 10px;
   background-color: rgb(97, 98, 100);
 }
 
