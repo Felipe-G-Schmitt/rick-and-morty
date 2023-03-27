@@ -79,6 +79,38 @@ const mock = [
 function App() {
   const [conteudo, setConteudo] = useState(<></>);
 
+  function traduzirStatus(status) {
+    switch (status) {
+      case "Alive":
+        return "Vivo";
+      case "Dead":
+        return "Morto";
+      default:
+        return "Desconhecido";
+    }
+  }
+
+  function traduzirGenero(gender) {
+    switch (gender) {
+      case "Male":
+        return "Masculino";
+      case "Female":
+        return "Feminino";
+      default:
+        return "Desconhecido";
+    }
+  }
+
+  function traduzirEspecie(species) {
+    switch (species) {
+      case "Human":
+        return "Humano";
+      default:
+        return "Desconhecido";
+    }
+  }
+
+
   async function carragarTodosOsPersonagens() {
     const retorno = await fetch(
       "https://rickandmortyapi.com/api/character",
@@ -101,19 +133,18 @@ function App() {
           {personagem.name}
         </div>
         <div className="cardspecies">
-          <h3>Espécie: {personagem.species}</h3>
+          <h3>Espécie: {traduzirEspecie(personagem.species)}</h3>
         </div>
         <div className="cardgender">
-          <h3>Gênero: {personagem.gender}</h3>
+          <h3>Gênero: {traduzirGenero(personagem.gender)}</h3>
         </div>
-        <div className="cardepisode">
-          <h5>Participações 
-            {/* personagem.episode.map(ep => (
-            <p>b</p>
-            ))*/} </h5>
+        <div className='cardepisode'>
+	        <h5>Participações: {personagem.episode.map(ep => (
+		        <span key={(personagem.name+(ep.split('episode/')[1]))}>Ep {ep.split('episode/')[1]},</span>))}
+	        </h5>
         </div>
         <div className="cardstatus">
-          <h3>Estado: {personagem.status}</h3>
+          <h3>Estado: {traduzirStatus(personagem.status)}</h3>
         </div>
       </div>
     ));
@@ -132,6 +163,11 @@ function App() {
         <h1>Rick and Morty API</h1>
       </header>
       <div className="lista-principal">{conteudo}</div>
+      <div className="filtros">
+        <div className="filtro">
+          
+        </div>
+      </div>
     </div>
   );
 }

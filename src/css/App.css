@@ -132,6 +132,9 @@ a:hover {
 	flex-wrap: wrap;
   justify-content: center;
   background-color: rgb(97, 98, 100);
+  max-width: 325px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 li {
